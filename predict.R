@@ -52,5 +52,3 @@ suggest <- function(input) {
     }
   }
 }
-
-suggest('he would later')
