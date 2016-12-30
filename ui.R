@@ -12,7 +12,7 @@ shinyUI(fluidPage(
   sidebarLayout(
         sidebarPanel(
               h5("Enter a phrase for a prediction:"),
-              textInput("textsource", label = "")
+              textInput("textsource", label = ""),
               hr(),
               p("This prediction app uses an integrated Stupid Backoff Model to predict the next word. The model is based off of twitter, news and blogs databases from the Swiftkey team. The code for this algorithm can be found on GitHub."),
               br(),
