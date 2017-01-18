@@ -2,30 +2,6 @@
 library(tm)
 load('ngram3.RData')
 
-googler <- function(input) {
-      if(nchar(input) > 0)
-      {
-            input <- gsub("[^A-Za-z ]","",input)
-            input <- tolower(input)   
-            countinput  <- strsplit(input,' ')
-            countinput  <- unlist(countinput)
-            entry <- paste(tail(countinput,3), collapse = ' ')
-            countinput <- strsplit(entry, ' ')
-            countinput <- unlist(countinput)
-            rand <- toString(sample(100000:9999999, 1))
-            download.file(paste0('http://suggestqueries.google.com/complete/search?client=firefox&q=',URLencode(entry),'%20'), rand, 'auto', quiet = FALSE, mode = "w")
-            google <- readChar(rand, file.info(rand)$size)
-            unlink(rand)
-            google <- strsplit(google,split=',[\"',fixed=TRUE)
-            google <- google[[1]][2]
-            google <- gsub("[^A-Za-z ]"," ",google)
-            google <- strsplit(google,' ')
-            google <- unlist(google)
-            offset  <- as.numeric(NROW(countinput))
-            return(google[offset+1])
-      }
-}
-
 suggest <- function(input) {
       if(nchar(input) > 0)
       {
@@ -84,5 +60,4 @@ suggest <- function(input) {
 
 shinyServer(function(input, output) {
       output$text1 <- renderText({suggest(input$textsource)})
-      output$text2 <- renderText({googler(input$textsource)}) 
 })
