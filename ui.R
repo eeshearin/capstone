@@ -2,7 +2,7 @@
 
 shinyUI(fluidPage(
       h3("Coursera Data Science Swiftkey Capstone - Word Prediction"),
-      tags$head(tags$style("#text1, #text2{color: blue;
+      tags$head(tags$style("#text1, #text2{color: red;
                            font-size: 20px;
                            }"
   )),
@@ -11,27 +11,31 @@ shinyUI(fluidPage(
   
   sidebarLayout(
         sidebarPanel(
-              h5("Enter a phrase for a prediction:"),
+              h5("Please enter a phrase for a prediction:"),
               textInput("textsource", label = ""),
               hr(),
               p("This prediction app uses an integrated Stupid Backoff Model to predict the next word. The model is based off of twitter, news and blogs databases from the Swiftkey team. The code for this algorithm can be found on GitHub."),
               br(),
-              p("The app also draws from Google's Autosuggest for comparison purposes. This shows you what Google's algorithm would predict for the same phrase."),
-              hr(),
-              h6("Full source code can be found on GitHub")
+              h6("Full source code can be found at https://www.github.com/eeshearin/capstone")
         ),
         
         
         
         mainPanel(
-              h5("Stupid Backoff Predictive Model Suggestion:"),
+              h3("Stupid Backoff Predictive Model Suggestion:"),
               hr(),
-              h4(textOutput("text1")),
+              h2(textOutput("text2")),
               hr(),
-              h5("Google's AutoComplete Suggestion (for comparison purposes only):"),
-              hr(),
-              h4(textOutput("text2")),
-              hr()
+              h5("This word is predicted to be the next in the sentence. Please enter another phrase to produce the next prediction."),
+              br(),
+              br(),
+              br(),
+              br(),
+              br(),
+              br(),
+              h5("Please note the phrase must be four words or fewer to produce a prediction, as the n-gram model uses unigrams, bigrams, and trigrams."),
+              br(),
+              h5("Thank you for using the app!")
         )
   )
       ))
