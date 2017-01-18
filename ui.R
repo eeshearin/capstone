@@ -14,7 +14,7 @@ shinyUI(fluidPage(
               h5("Please enter a phrase for a prediction:"),
               textInput("textsource", label = ""),
               hr(),
-              p("This prediction app uses an integrated Stupid Backoff Model to predict the next word. The model is based off of twitter, news and blogs databases from the Swiftkey team. The code for this algorithm can be found on GitHub."),
+              p("This prediction app uses an integrated Stupid Backoff Model to predict the next word. The model is based on Twitter, news and blogs databases from the Swiftkey team. The code for this algorithm can be found on GitHub."),
               br(),
               h6("Full source code can be found at https://www.github.com/eeshearin/capstone")
         ),
@@ -24,7 +24,7 @@ shinyUI(fluidPage(
         mainPanel(
               h3("Stupid Backoff Predictive Model Suggestion:"),
               hr(),
-              h2(textOutput("text2")),
+              h2(textOutput("text1")),
               hr(),
               h5("This word is predicted to be the next in the sentence. Please enter another phrase to produce the next prediction."),
               br(),
